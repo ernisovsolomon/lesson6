@@ -29,4 +29,5 @@ for person in people[:1:-1]:
     people.pop()
     print(f'{person}, мы сожалеем об отмене')
 
-print(people)
+del people[1]
+del people[0]
