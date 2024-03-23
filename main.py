@@ -37,3 +37,35 @@
 6) Написать программу для выбора и оплаты кофе. (Условие для этой задачи можно
 внести от себя).
 '''
+menu = [
+    {'code': 100, 'name': 'Американо', 'price': 160},
+    {'code': 101, 'name': 'Эспрессо', 'price': 140},
+    {'code': 102, 'name': 'Латте', 'price': 180},
+    {'code': 103, 'name': 'Капучино', 'price': 170},
+    {'code': 104, 'name': 'Макиато', 'price': 150},
+    {'code': 105, 'name': 'кофе 3-в-1', 'price': 50}
+]
+result = None
+while True:
+    code = int(input('Введите код кофе: '))
+    for coffee in menu:             
+        if code == coffee['code']:
+            result = coffee
+            break
+    if result:
+        break
+    else:
+        print('Не верный формат кода, введите обратно!')
+
+        
+
+
+pay = int(input(f'С вас {result['price']} сом за {result['name']}.\nВнесите оплату: '))
+
+if pay > result['price']:
+    cashback = pay - result['price']
+    print(f'ОПЛАЧЕНО! Ваша сдача {cashback} сом')
+elif pay == result['price']:
+    print('ОПЛАЧЕНО! Держите ваш кофе!')
+else:
+    print('Недостаточно средств на балансе!')
